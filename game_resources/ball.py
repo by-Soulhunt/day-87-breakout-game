@@ -2,8 +2,8 @@ from turtle import Turtle
 import random
 
 
-SPEED_S = -0.35
-SPEED_F = 0.35
+SPEED_S = 1 # Change
+SPEED_F = 1 # Change
 
 
 class Ball(Turtle):
@@ -16,7 +16,7 @@ class Ball(Turtle):
         angle = self.random_angle() # Generates a random float and used for choose random vector of ball
         self.dx = angle
         self.dy = abs(angle) # Use abs to avoid starting move into down
-        self.goto(0, -380)
+        self.goto(0, -375)
         self.stand_on_start = True # Ball at start position
 
     def move(self):
