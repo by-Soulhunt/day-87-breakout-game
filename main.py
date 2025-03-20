@@ -3,6 +3,7 @@ from game_resources.walls import Walls
 from game_resources.paddle import Paddle
 from game_resources.ball import Ball
 from game_resources.block import Block, block_creating, deleting_blocks
+from game_resources.scoreboard import Scoreboard
 
 
 # Screen
@@ -22,7 +23,6 @@ paddle = Paddle()
 # Ball
 ball = Ball()
 
-
 # Blocks
 screen.tracer(0) # 2 TEST
 list_of_block = []
@@ -30,6 +30,9 @@ block_step = 5
 line_step = 0
 block_creating(block_step, line_step, list_of_block)
 
+# Scoreboard
+scoreboard = Scoreboard()
+scoreboard.write_score()
 
 # Onkey function
 screen.listen()
@@ -59,12 +62,18 @@ while game_is_on:
             ball.dy *= -1
             block.hideturtle()
             list_of_block.remove(block)
+            scoreboard.current_score +=1
+            scoreboard.write_score()
 
     # Lose checking
     if ball.ycor() < -450:
         ball.lose_ball()
         deleting_blocks(list_of_block)
         block_creating(block_step, line_step, list_of_block)
+        if scoreboard.current_score > scoreboard.best_score:
+            scoreboard.best_score = scoreboard.current_score
+        scoreboard.current_score = 0
+        scoreboard.write_score()
 
     # Paddle collision
     if ball.ycor() < -385 and ball.distance(paddle) < 40:
