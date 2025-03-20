@@ -11,7 +11,7 @@ screen = Screen()
 screen.setup(width=900, height=900)
 screen.bgcolor("black")
 screen.title("Breakout game")
-screen.tracer(0) # 1 TEST
+screen.tracer(1) # Animation
 
 # Walls
 walls = Walls()
@@ -24,7 +24,7 @@ paddle = Paddle()
 ball = Ball()
 
 # Blocks
-screen.tracer(0) # 2 TEST
+screen.tracer(2) # Animation
 list_of_block = []
 block_step = 5
 line_step = 0
