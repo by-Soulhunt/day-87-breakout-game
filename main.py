@@ -64,7 +64,10 @@ while game_is_on:
     # Block checking
     for block in list_of_block:
         if ball.distance(block) < 40:
-            pass
+            ball.dy *= -1
+            block.hideturtle()
+            list_of_block.remove(block)
+
 
     # Paddle collision
     if ball.ycor() < -385 and ball.distance(paddle) < 40:

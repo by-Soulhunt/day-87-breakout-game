@@ -12,8 +12,3 @@ class Block(Turtle):
         self.goto(-395, 300)
         self.colors = ["red", "orange", "yellow", "green", "blue", "purple"]
 
-    # def create_blocks(self):
-    #     list_of_blocs = []
-    #     for _ in range(5):
-    #         self.
-
