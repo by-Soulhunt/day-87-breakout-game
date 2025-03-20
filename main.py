@@ -2,7 +2,7 @@ from turtle import Screen
 from game_resources.walls import Walls
 from game_resources.paddle import Paddle
 from game_resources.ball import Ball
-from game_resources.block import Block
+from game_resources.block import Block, block_creating, deleting_blocks
 
 
 # Screen
@@ -28,15 +28,7 @@ screen.tracer(0) # 2 TEST
 list_of_block = []
 block_step = 5
 line_step = 0
-for line in range(6):
-    for _ in range(9):
-        block = Block()
-        block.color(block.colors[line])
-        block.goto(-395 + block_step, 0 + line_step)
-        list_of_block.append(block)
-        block_step += 96
-    block_step = 5
-    line_step += 40
+block_creating(block_step, line_step, list_of_block)
 
 
 # Onkey function
@@ -68,6 +60,11 @@ while game_is_on:
             block.hideturtle()
             list_of_block.remove(block)
 
+    # Lose checking
+    if ball.ycor() < -450:
+        ball.lose_ball()
+        deleting_blocks(list_of_block)
+        block_creating(block_step, line_step, list_of_block)
 
     # Paddle collision
     if ball.ycor() < -385 and ball.distance(paddle) < 40:
