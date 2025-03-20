@@ -11,6 +11,7 @@ class Paddle(Turtle):
         self.shapesize(1, 5)
         self.goto(0, -400)
 
+
     def move_right(self):
         x = self.xcor()
         if x < 372:

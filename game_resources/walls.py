@@ -15,6 +15,7 @@ class Walls(Turtle):
         self.setheading(90)
         self.goto(-445, -440)
 
+
     def print_walls(self):
         """
         Print walls
