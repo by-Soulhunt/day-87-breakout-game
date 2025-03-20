@@ -15,7 +15,7 @@ class Ball(Turtle):
         self.penup()
         angle = self.random_angle() # Generates a random float and used for choose random vector of ball
         self.dx = angle
-        self.dy = abs(angle)
+        self.dy = abs(angle) # Use abs to avoid starting move into down
         self.goto(0, -380)
         self.stand_on_start = True # Ball at start position
 
@@ -41,5 +41,9 @@ class Ball(Turtle):
         return random.uniform(SPEED_S, SPEED_F)
 
     def ball_move_to_start(self):
+        """
+        Flag to start moving bal
+        :return:
+        """
         self.stand_on_start = False
 
