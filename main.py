@@ -58,7 +58,7 @@ while game_is_on:
 
     # Block checking
     for block in list_of_block:
-        if ball.distance(block) < 40:
+        if ball.distance(block) < 35:
             ball.dy *= -1
             block.hideturtle()
             list_of_block.remove(block)

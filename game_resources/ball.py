@@ -2,7 +2,7 @@ from turtle import Turtle
 import random
 
 
-SPEED_S = 1 # Change
+SPEED_S = 0.35 # Change
 SPEED_F = 1 # Change
 
 
